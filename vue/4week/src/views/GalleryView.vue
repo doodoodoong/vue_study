@@ -1,5 +1,5 @@
 <template>
-  <div class="text-red-500">this is home page</div>
+  <div>this is galley page</div>
 </template>
 <script>
 export default {}
