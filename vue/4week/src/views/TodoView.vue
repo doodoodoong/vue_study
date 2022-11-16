@@ -1,7 +1,9 @@
 <template>
-  <div class="text-3xl">this is to do page</div>
+  <div>
+    <h1>this is To-do page</h1>
+  </div>
 </template>
 <script>
 export default {}
 </script>
-<style></style>
+<style scoped></style>
