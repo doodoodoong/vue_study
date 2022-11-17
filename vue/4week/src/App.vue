@@ -28,7 +28,8 @@
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="test"> Submit </v-btn>
+            <v-btn color="primary" text @click="test"> Get Test </v-btn>
+            <v-btn color="secondary" @click="postTest">Post Test</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -100,6 +101,19 @@ export default {
         })
         .finally(() => {
           // always executed
+        })
+    },
+    postTest() {
+      axios
+        .post('https://reqres.in/api/register', {
+          email: 'eve.holt@reqres.in',
+          password: 'pistol'
+        })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
         })
     }
   }
