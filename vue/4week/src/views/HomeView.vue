@@ -20,32 +20,39 @@ export default {
   },
   methods: {
     pushTodo() {
-      axios.post(
-        'https://api.notion.com/v1/pages',
-        {
-          parent: {
-            database_id: process.env.NOTION_DATABASE_ID
-          },
-          properties: {
-            Name: {
-              title: [
-                {
-                  text: {
-                    content: this.title
+      axios
+        .post(
+          'https://api.notion.com/v1/pages',
+          {
+            parent: {
+              database_id: process.env.VUE_APP_NOTION_DATABASE_ID
+            },
+            properties: {
+              Name: {
+                title: [
+                  {
+                    text: {
+                      content: this.title
+                    }
                   }
-                }
-              ]
+                ]
+              }
+            }
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.VUE_APP_NOTION_API_TOKEN}`,
+              'Content-Type': 'application/json',
+              'Notion-Version': '2021-05-13'
             }
           }
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NOTION_API_TOKEN}`,
-            'Content-Type': 'application/json',
-            'Notion-Version': '2021-05-13'
-          }
-        }
-      )
+        )
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   }
 }
