@@ -9,14 +9,14 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <v-text-field id="input" v-model="input" @keyup.enter="notion()">
+      <v-text-field id="input" v-model="input" @keyup.enter="add()">
       </v-text-field>
       <v-btn for="input">
-        <v-icon color="white" @click="notion()">mdi-plus</v-icon>
+        <v-icon color="white" @click="add()">mdi-plus</v-icon>
       </v-btn>
     </div>
     <div>
-      <ContentTable />
+      <ContentTable ref="ContentTable" :title="input" />
     </div>
   </div>
 </template>
@@ -30,7 +30,8 @@ export default {
     }
   },
   methods: {
-    notion() {
+    add() {
+      this.$refs.ContentTable.addTodo()
       this.input = ''
     },
   },

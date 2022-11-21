@@ -10,7 +10,7 @@
       :item-per-page="5"
       class="elevation-1"
     >
-      <template v-slot:top>
+      <template #top>
         <v-switch
           v-model="singleSelect"
           label="Single Select"
@@ -18,15 +18,23 @@
         ></v-switch>
       </template>
     </v-data-table>
+    <h1>{{ title }}</h1>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: '',
+    },
+  },
   data() {
     return {
+      todo: this.title,
       singleSelect: false,
       selected: [],
-      title: '',
       headers: [
         {
           text: 'To-do',
@@ -34,14 +42,23 @@ export default {
           sortable: false,
           value: 'name',
         },
-        { text: 'Title', value: 'title' },
       ],
       todoList: [
         {
-          name: this.title,
+          name: 'Play music',
         },
       ],
     }
+  },
+  computed: {
+    appendTodo() {
+      return this.title
+    },
+  },
+  methods: {
+    addTodo() {
+      this.todoList.push({ name: `${this.todo}` })
+    },
   },
 }
 </script>
