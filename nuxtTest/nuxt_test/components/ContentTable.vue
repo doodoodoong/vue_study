@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todoList.push({ name: `${this.todo}` })
+      this.todoList.push({ name: `${this.appendTodo}` })
     },
   },
 }
