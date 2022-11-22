@@ -18,7 +18,7 @@
         ></v-switch>
       </template>
     </v-data-table>
-    <h1>{{ title }}</h1>
+    <h1 class="text-3xl text-red-300">PropProp~ {{ title }}</h1>
   </div>
 </template>
 <script>
