@@ -1,7 +1,7 @@
-<template>
+<template class="m-3">
   <div>
     <div>
-      <div class="container mx-auto pt-8">
+      <div class="container mx-auto pt-8 m-0">
         <h1 class="mb-4 text-3xl font-bold text-white">Your To-do Append</h1>
         <p class="text-sm pb-4">
           This is your To-do append to notion. Type your To-do
@@ -9,7 +9,12 @@
       </div>
     </div>
     <div class="flex justify-center">
-      <v-text-field id="input" v-model="input" @keyup.enter="add()">
+      <v-text-field
+        id="input"
+        v-model="input"
+        placeholder="Type here"
+        @keyup.enter="add()"
+      >
       </v-text-field>
       <v-btn for="input">
         <v-icon color="white" @click="add()">mdi-plus</v-icon>
